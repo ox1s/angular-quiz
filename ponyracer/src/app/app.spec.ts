@@ -1,23 +1,32 @@
 import { TestBed } from '@angular/core/testing';
+import { page } from 'vitest/browser';
 import { App } from './app';
 
+class AppTester {
+  readonly fixture = TestBed.createComponent(App);
+  readonly title = page.getByRole('heading', { level: 1 });
+  readonly menu = page.getByCss('pr-menu');
+  readonly races = page.getByCss('pr-races');
+}
+
 describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should have a title', async () => {
+    const tester = new AppTester();
+
+    await expect.element(tester.title).toHaveTextContent('Ponyracer');
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should display the menu component', async () => {
+    const tester = new AppTester();
+
+    await expect.element(tester.menu).toBeVisible();
   });
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ponyracer');
+  it('should display the races component', async () => {
+    const tester = new AppTester();
+
+    await expect.element(tester.races).toBeVisible();
   });
 });
