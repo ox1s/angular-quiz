@@ -10,16 +10,14 @@ import { PonyModel } from '../models/pony-model';
 export class Pony {
   readonly ponyModel = input.required<PonyModel>();
 
-  protected readonly ponyImageUrl = computed(() => {
+  readonly ponyImageUrl = computed(() => {
     const color = this.ponyModel().color;
-    const fileName = `pony-${color.toLowerCase()}`;
+    const fileName = `images/pony-${color.toLowerCase()}.gif`;
     return fileName;
   });
-
-  protected readonly ponyImageAlt = computed(() => {
-    const color = this.ponyModel().color;
-    return color.toLowerCase();
-  });
-
   readonly ponySelected = output<PonyModel>();
+
+  protected isPonySelected() {
+    this.ponySelected.emit(this.ponyModel());
+  }
 }
