@@ -1,15 +1,11 @@
 {
   "pack": "87",
-  "id": 5,
-  "title": "Pony component",
+  "id": 6,
+  "title": "Using pipes",
   "specs": [
     {
       "name": "src/app/race/race.spec.ts",
-      "hash": "e1395ae5197b205e2f7695a4801d707191b461537b0bbd0aa47a2480db205c90"
-    },
-    {
-      "name": "src/app/pony/pony.spec.ts",
-      "hash": "f7609db21d70c20408e13a995d0c283a68c3dfa3e3424fe3ee0b4d9351349a03"
+      "hash": "8468d20eecd34ab87523363842eba6f6d42e59167eab61734b078e68e0d199c6"
     }
   ]
 }
