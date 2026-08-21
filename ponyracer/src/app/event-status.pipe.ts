@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { format, isToday, parseISO, isPast, formatISO } from 'date-fns';
+import { format, isToday, parseISO, isPast } from 'date-fns';
 
 @Pipe({
   name: 'eventStatus'
